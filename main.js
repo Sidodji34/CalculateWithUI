@@ -1,5 +1,4 @@
 const BODY = {
-  BODY_CALCULATE: document.querySelectorAll('.calc_body'),
   NUMBERS: document.querySelectorAll('.numbers, .number-zero'),
   RESET: document.querySelector('.button-c'),
   DELITE_SYMBOL: document.querySelector('.button-del'),
@@ -60,7 +59,7 @@ for (let isOperations of BODY.OPERATIONS) {
 BODY.RESULT.addEventListener('click', getResult);
 function getResult() {
   numberTwo = BODY.OUTPUT.textContent;
-  if (numberTwo === '÷0' || numberTwo === '÷') return BODY.OUTPUT.textContent = 'Error';
+  if (numberTwo === '÷0' ) return BODY.OUTPUT.textContent = 'Error';
   if (numberTwo[0] === '+') {
     result = +numberOne + +numberTwo.slice(1);
   } else if (numberTwo[0] === '-') {
@@ -73,9 +72,6 @@ function getResult() {
   if (Number.isNaN(+result)) return BODY.OUTPUT.textContent = '';
   if (String(result).length >= 10) {
     BODY.OUTPUT.textContent = result.toFixed(5);
-  } 
-  if (numberOne && !numberTwo) {
-    result = numberOne;
   } else {
     BODY.OUTPUT.textContent = result;
   }
