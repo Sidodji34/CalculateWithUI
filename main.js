@@ -59,7 +59,7 @@ for (let isOperations of BODY.OPERATIONS) {
 BODY.RESULT.addEventListener('click', getResult);
 function getResult() {
   numberTwo = BODY.OUTPUT.textContent;
-  if (numberTwo === '÷0' ) return BODY.OUTPUT.textContent = 'Error';
+  if (numberTwo === '÷0' || numberTwo === '÷') return BODY.OUTPUT.textContent = 'Error';
   if (numberTwo[0] === '+') {
     result = +numberOne + +numberTwo.slice(1);
   } else if (numberTwo[0] === '-') {
